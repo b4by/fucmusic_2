@@ -31,6 +31,7 @@ export const ExamplesSection = () => {
               <div className="flex justify-center gap-10 flex-wrap">
                 {musics.slice(0, 5).map((music) => (
                   <GlobalAudioPlayer
+                    key={music.name}
                     currentTrack={music.src}
                     trackInfo={music.name}
                   />
