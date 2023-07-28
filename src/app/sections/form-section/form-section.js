@@ -6,7 +6,7 @@ export const FormSection = () => {
       {/* <TitleSection title="Контакты" /> */}
       <section className="border-b border-white bg-black">
         <div className="mx-auto border-white max-w-7xl border-x lg:px-24 lg:py-36 px-8 py-24">
-          <div className="flex flex-col items-center justify-center gap-y-8 w-[400px] mx-auto">
+          <div className="flex flex-col items-center justify-center gap-y-8 lg:max-w-[400px] mx-auto">
             <div className="text-center flex flex-col items-center justify-center gap-y-4">
               <h3 className="text-white font-semibold text-3xl">
                 Оставьте свой <br /> номер телефона

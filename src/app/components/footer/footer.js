@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <section className="">
+    <section className="bg-pattern bg-contain">
       <footer>
-        <div className="mx-auto max-w-7xl divide-y divide-white lg:border-x border-white">
-          <div className="flex-col flex lg:flex-row lg:items-center gap-y-12 items-start justify-between lg:py-16 pb-6 pt-16 px-8 lg:px-24">
+        <div className="mx-auto max-w-7xl divide-y divide-white lg:border-x border-white ">
+          <div className="flex-col flex lg:flex-row lg:items-center gap-y-12 items-start justify-between py-16 pt-16 px-8 lg:px-24">
             <div className="lg:mx-auto lg:text-center">
-              <div className="flex flex-col items-center gap-y-3">
+              <div className="flex flex-col lg:items-center gap-y-3">
                 <div className="text-white items-center flex">
                   <Link
                     href="/"
@@ -52,7 +52,7 @@ export const Footer = () => {
                     </div>
                   </Link>
                 </div>
-                <div className="flex flex-col gap-y-3 items-center">
+                <div className="flex flex-col gap-y-6 lg:gap-y-3 lg:items-center">
                   <Link href="#" className="flex space-x-2 items-center group">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const DescriptionSection = () => {
   return (
     <section className="overflow-hidden">
@@ -22,10 +24,11 @@ export const DescriptionSection = () => {
               </p>
             </div>
           </div>
-          <img
-            src="images/description-img.png"
-            alt=""
-            className="absolute right-[100px] top-0 h-[440px]"
+          <Image
+            src="/images/description-img.png"
+            height="440"
+            width="440"
+            className="hidden lg:block lg:absolute right-[100px] top-0"
           />
         </div>
       </section>

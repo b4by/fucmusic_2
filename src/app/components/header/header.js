@@ -1,7 +1,13 @@
+"use client";
 import { navLinks } from "@/app/constants";
 import Link from "next/link";
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen);
+
   return (
     <div className="w-full mx-auto justify-center border-b border-white">
       <div className="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between max-w-7xl mx-auto px-8 py-2 border-x">
@@ -15,6 +21,7 @@ export const Header = () => {
                   fill="white"
                   width={50}
                   height={50}
+                  className="group-hover:opacity-75 transition ease-in"
                 >
                   <linearGradient id="linear-gradient">
                     <stop offset="0%" stopColor="#F18336" />
@@ -37,14 +44,21 @@ export const Header = () => {
                 </svg>
               </div>
               <div className="flex flex-col gap-y-[1px] ml-3">
-                <p className="uppercase font-bold text-white group-hover:text-gray-300 leading-none">
+                <p className="uppercase font-bold text-white group-hover:text-gray-300 leading-none transition ease-in">
                   FUC MUSIC
                 </p>
-                <span className="text-[10px]">студия звукозаписи</span>
+                <span className="text-[10px] group-hover:text-gray-300 transition ease-in">
+                  студия звукозаписи
+                </span>
               </div>
             </div>
           </Link>
-          <button className="focus:shadow-outline focus:outline-none md:hidden rounded-lg">
+          <button
+            className="focus:shadow-outline focus:outline-none md:hidden rounded-lg"
+            onClick={(e) => {
+              setIsOpen(!isOpen);
+            }}
+          >
             <svg
               className="h-8 w-8"
               fill="none"
@@ -54,21 +68,21 @@ export const Header = () => {
               <path
                 d="M4 6h16M4 12h16M4 18h16"
                 className="inline-flex"
-                strokeLinecap="round"
-                strokeLinejoin="round"
                 strokeWidth="2"
               ></path>
               <path
                 d="M6 18L18 6M6 6l12 12"
                 className="hidden"
-                strokeLinecap="round"
-                strokeLinejoin="round"
                 strokeWidth="2"
               ></path>
             </svg>
           </button>
         </div>
-        <nav className="flex flex-col items-center lg:flex lg:flex-row lg:justify-start lg:mt-0 gap-3 lg:gap-6 lg:p-0 lg:px-0 md:pb-0 opacity-100 p-4 px-5">
+        <nav
+          className={`${
+            isOpen ? "flex" : "hidden"
+          } flex-col items-center lg:flex lg:flex-row lg:justify-start lg:mt-0 gap-3 lg:gap-6 lg:p-0 lg:px-0 md:pb-0 opacity-100 p-4 px-5`}
+        >
           {navLinks.map((link) => (
             <Link
               href={link.href}

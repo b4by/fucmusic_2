@@ -10,7 +10,7 @@ export const VideoButtonSection = () => {
         <div className="mx-auto divide-y divide-white">
           <div className="border-white border border-collapse">
             <button
-              className="w-full p-48 relative uppercase overflow-hidden font-black text-center"
+              className="w-full p-20 md:p-48 relative uppercase overflow-hidden font-black text-center"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -22,9 +22,9 @@ export const VideoButtonSection = () => {
               >
                 <source src="video/bg1.mp4" type="video/mp4" />
               </video>
-              <p className="p-6 absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center uppercase text-[90px] font-black leading-none text-center transition-all ease-in  text-white/70 group-hover:bg-black group-hover:bg-opacity-100 group-hover:mix-blend-multiply group-hover:scale-105 duration-200">
-                <span className="">Записаться сейчас</span>
-              </p>
+              <span className="p-6 absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center uppercase text-3xl sm:text-5xl md:text-[90px] font-black text-center transition-all ease-in text-white/80 group-hover:bg-black group-hover:bg-opacity-100 group-hover:mix-blend-multiply group-hover:scale-105 duration-200">
+                Записаться сейчас
+              </span>
             </button>
           </div>
         </div>
