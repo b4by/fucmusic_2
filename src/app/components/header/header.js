@@ -6,7 +6,6 @@ import { twMerge } from "tailwind-merge";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
 
   return (
     <div className="w-full mx-auto justify-center border-b border-white">

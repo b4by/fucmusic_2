@@ -28,6 +28,7 @@ export const DescriptionSection = () => {
             src="/images/description-img.png"
             height="440"
             width="440"
+            alt="иллюстрация с иконками оборудования музыкальной студии"
             className="hidden lg:block lg:absolute right-[100px] top-0"
           />
         </div>

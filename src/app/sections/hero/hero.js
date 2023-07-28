@@ -6,7 +6,7 @@ export const HeroSection = () => {
     <section className="overflow-hidden bg-black">
       <section className="bg-black py-6 lg:py-16 mx-auto max-w-7xl px-8 lg:px-24 items-center border-white border-y-0 border">
         <div className="flex flex-col md:items-center justify-center gap-y-2 lg:gap-y-0 lg:block">
-          <h1 className="text-white relative">
+          <h1 className="text-white md:text-center lg:text-left relative">
             <span className="font-extrabold text-7xl md:text-8xl lg:text-9xl tracking-wider">
               FUC MUSIC
             </span>
