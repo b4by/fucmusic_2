@@ -12,3 +12,31 @@ html,
 body {
   background-color: #000;
 }
+
+.bounce-icon {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 13px;
+  height: 13px;
+}
+
+.bounce-icon span {
+  width: 3px;
+  height: 100%;
+  background-color: #f18336;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 3px;
+  transform-origin: bottom;
+  @apply animate-bounceBars;
+  content: "";
+}
+
+.bounce-icon span:nth-of-type(2) {
+  animation-delay: -2.2s;
+}
+
+.bounce-icon span:nth-of-type(3) {
+  animation-delay: -3.7s;
+}

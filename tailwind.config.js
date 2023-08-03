@@ -13,7 +13,29 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         pattern: 'url("assets/images/bg-pattern.png")',
         descriptionImg: 'url("assets/images/description-img.png")',
-        waves: 'url("assets/images/waves.png)',
+        waves: 'url("assets/images/waves-2.png")',
+      },
+      animation: {
+        bounceBars: "bouncing 2.2s ease infinite alternate",
+      },
+      keyframes: {
+        bouncing: {
+          "10%": {
+            transform: "scaleY(0.3)",
+          },
+          "30%": {
+            transform: "scaleY(1)",
+          },
+          "60%": {
+            transform: "scaleY(0.5)",
+          },
+          "80%": {
+            transform: "scaleY(0.75)",
+          },
+          "100%": {
+            transform: "scaleY(0.6)",
+          },
+        },
       },
     },
   },

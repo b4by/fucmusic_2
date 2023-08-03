@@ -6,22 +6,22 @@ import { RockIcon } from "../components/icons/rock-icon/rock-icon";
 
 export const genres = [
   {
-    label: "Поп",
+    label: "Pop",
     content: "Поп",
     icon: <PopIcon />,
   },
   {
-    label: "Рок",
+    label: "Rock",
     content: "Рок",
     icon: <RockIcon />,
   },
   {
-    label: "Рэп",
+    label: "Rap",
     content: "Рэп",
     icon: <RapIcon />,
   },
   {
-    label: "Электроника",
+    label: "Electric",
     content: "Электроника",
     icon: <FlashIcon />,
   },

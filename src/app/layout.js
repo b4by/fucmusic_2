@@ -1,9 +1,11 @@
+import { Provider } from "react-redux";
 import { Content } from "./components/content/content";
 import { Footer } from "./components/footer/footer";
 import { Header } from "./components/header/header";
 import { Spectrum } from "./components/spectrum/spectrum";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
+import { store } from "./store/store";
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
