@@ -9,9 +9,17 @@ export const PhotosSection = () => {
         <div className="flex justify-center">
           <ul className="grid grid-cols-3">
             {photos.map((photo) => (
-              <li className="grayscale transition-all duration-200 ease-in hover:grayscale-0 hover:scale-105">
+              <li
+                className="grayscale transition-all duration-200 ease-in hover:grayscale-0 hover:scale-105"
+                key={photo.id}
+              >
                 <Link href={photo.src}>
-                  <Image src={photo.src} width="600" height="300" />
+                  <Image
+                    src={photo.src}
+                    width="600"
+                    height="300"
+                    alt="фотография студии"
+                  />
                 </Link>
               </li>
             ))}

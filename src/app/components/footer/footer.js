@@ -18,10 +18,12 @@ export const Footer = () => {
                     <div className="flex items-center">
                       <Logo classNames="group-hover:opacity-75 transition ease-in" />
                       <div className="flex flex-col gap-y-[1px] ml-3">
-                        <span className="uppercase font-bold text-white group-hover:text-gray-300 leading-none">
+                        <span className="uppercase font-bold text-white group-hover:text-gray-300 leading-none transition ease-in">
                           FUC MUSIC
                         </span>
-                        <span className="text-[10px]">студия звукозаписи</span>
+                        <span className="text-[10px] group-hover:text-gray-300 transition ease-in">
+                          студия звукозаписи
+                        </span>
                       </div>
                     </div>
                   </Link>

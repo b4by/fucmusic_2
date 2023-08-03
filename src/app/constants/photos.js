@@ -20,7 +20,7 @@ export const photos = [
     src: "/images/photos/17.jpg",
   },
   {
-    id: 4,
+    id: 5,
     src: "/images/photos/13.jpg",
   },
 ];

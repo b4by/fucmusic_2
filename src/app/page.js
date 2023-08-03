@@ -11,10 +11,19 @@ import { FormSection } from "./sections/form-section/form-section";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { PhotosSection } from "./sections/photos-section/photos-section";
+import Script from "next/script";
+import Head from "next/head";
+import Analytics from "./components/analytics/yandex-analytics";
+import YandexAnalytics from "./components/analytics/yandex-analytics";
+import { FormBitrix } from "./components/analytics/form-bitrix";
+import { MessengersBitrix } from "./components/analytics/messengers-bitrix";
 
 export default function Home() {
   return (
     <>
+      <YandexAnalytics />
+      <FormBitrix />
+      <MessengersBitrix />
       <HeroSection />
       <VideoButtonSection />
       <DescriptionSection />
