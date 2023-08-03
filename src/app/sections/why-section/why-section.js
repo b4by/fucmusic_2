@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const WhySection = () => {
   return (
@@ -7,7 +8,9 @@ export const WhySection = () => {
         <div className="mb-12">
           <div className="absolute left-[100px] w-[400px] h-[400px]">
             <div className="relative w-[400px] h-[300px]">
-              <Image src="/images/photos/APC_0164.jpg" fill />
+              <Link href="/images/photos/1.jpg">
+                <Image src="/images/photos/1.jpg" fill />
+              </Link>
             </div>
           </div>
           <div className="lg:ml-auto flex flex-col gap-y-8 py-6 max-w-xl">
