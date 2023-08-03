@@ -8,7 +8,7 @@ export default function YandexAnalytics() {
         <div>
           <img
             src="https://mc.yandex.ru/watch/94468047"
-            style="position:absolute; left:-9999px;"
+            style={{ position: "absolute", left: "-9999px" }}
             alt=""
           />
         </div>
