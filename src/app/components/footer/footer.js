@@ -4,7 +4,7 @@ import { Logo } from "../logo/logo";
 
 export const Footer = () => {
   return (
-    <section className="bg-pattern bg-contain bg-center">
+    <section className="bg-pattern bg-contain bg-center" id="contacts">
       <footer>
         <div className="mx-auto max-w-7xl divide-y divide-white lg:border-x border-white ">
           <div className="flex-col flex lg:flex-row lg:items-center gap-y-12 items-start justify-between py-16 pt-16 px-8 lg:px-24">

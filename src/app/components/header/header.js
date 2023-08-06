@@ -59,12 +59,12 @@ export const Header = () => {
             <Link
               href={link.href}
               key={link.name}
-              className="text-white/60 text-sm duration-200 ease-in-out focus:outline-none focus:shadow-none focus:text-white/5 hover:text-white lg:py-4 md:my-0 py-2 transform transition lg:ml-auto"
+              className="text-white/60 text-sm duration-200 ease-in-out focus:outline-none focus:shadow-none focus:text-white hover:text-white lg:py-4 md:my-0 py-2 transform transition lg:ml-auto"
             >
               {link.name}
             </Link>
           ))}
-          <button className="text-white/60 text-sm duration-200 ease-in-out focus:outline-none focus:shadow-none focus:text-white/5 hover:text-white p-2 transform transition lg:ml-auto border border-white/60  hover:border-white">
+          <button className="text-white/60 text-sm duration-200 ease-in-out focus:outline-none focus:shadow-none focus:text-white hover:text-white p-2 transform transition lg:ml-auto border border-white/60  hover:border-white">
             Записаться
           </button>
         </nav>

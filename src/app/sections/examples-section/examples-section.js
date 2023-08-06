@@ -9,7 +9,7 @@ const GlobalAudioPlayer = dynamic(
 
 export const ExamplesSection = () => {
   return (
-    <div className="relative">
+    <div className="relative" id="examples">
       <section>
         <div className="relative mx-auto max-w-7xl border-x border-white">
           <h2 className="text-white font-bold uppercase absolute -left-[85px] top-[120px] -rotate-90">

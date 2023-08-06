@@ -1,13 +1,30 @@
-import { TitleSection } from "../title-section/title-section";
+import { equipments } from "@/app/constants";
+import Image from "next/image";
+import Link from "next/link";
 
 export const EquipmentSection = () => {
   return (
-    <div>
-      <section className="">
-        <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x text-white">
-          Оборудование
-        </div>
-      </section>
-    </div>
+    <section className="bg-white" id="equipments">
+      <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x border-black">
+        <ul className="grid grid-cols-2 xl:grid-cols-3 gap-6">
+          {equipments.map((item) => (
+            <li key={item.id}>
+              <Link href={item.img} className="flex flex-col gap-6">
+                <div className="relative max-w-[400px] aspect-[4/3]">
+                  <Image
+                    src={item.img}
+                    alt={item.name}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw"
+                  />
+                </div>
+                <span className="text-sm">{item.name}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 };

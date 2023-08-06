@@ -17,25 +17,32 @@ import Analytics from "./components/analytics/yandex-analytics";
 import YandexAnalytics from "./components/analytics/yandex-analytics";
 import { FormBitrix } from "./components/analytics/form-bitrix";
 import { MessengersBitrix } from "./components/analytics/messengers-bitrix";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const showModal = searchParams?.modal;
+
   return (
     <>
-      <YandexAnalytics />
-      <FormBitrix />
-      <MessengersBitrix />
+      <>
+        <YandexAnalytics />
+        <FormBitrix />
+        <MessengersBitrix />
+      </>
       <HeroSection />
       <VideoButtonSection />
       <DescriptionSection />
       <WhySection />
-      {/* <Provider store={store}>
+      <Provider store={store}>
         <ExamplesSection />
-      </Provider> */}
-      {/* <ServicesSection /> */}
+      </Provider>
+      <ServicesSection />
+      <EquipmentSection />
       <PhotosSection />
-      {/* <EquipmentSection /> */}
-      {/* <ReviewsSection /> */}
-      <FormSection />
+      <ReviewsSection />
+      {/* <FormSection /> */}
+      {showModal && <BasicModal />}
     </>
   );
 }

@@ -7,12 +7,13 @@ export const WhySection = () => {
       <section className="py-36 lg:py-16 mx-auto max-w-7xl px-8 lg:px-24 items-center border-black border-y-0 border bg-white text-black relative">
         <div className="mb-12">
           <div className="xl:absolute xl:left-[100px]">
-            <div className="max-w-[300px] aspect-[4/3] relative xl:w-[400px] xl:h-[300px] lg:max-w-[400px] lg:aspect-[4/3]">
+            <div className="mb-8 max-w-[400px] aspect-[4/3] relative xl:w-[400px] xl:h-[300px] lg:max-w-[400px] lg:aspect-[4/3]">
               <Link href="/images/photos/1.jpgg">
                 <Image
                   src="/images/photos/1.jpg"
                   fill
                   alt="фото студии"
+                  sizes="(max-width: 768px) 100vw"
                   className="object-cover"
                 />
               </Link>

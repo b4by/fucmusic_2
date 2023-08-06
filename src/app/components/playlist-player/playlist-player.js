@@ -15,6 +15,7 @@ import { PlaylistPlayerControls } from "./playlist-player-controls/playlist-play
 import { PlaylistPlayerTrack } from "./playlist-player-track/playlist-player-track";
 import { getAllAudio } from "@/app/services/getAllAudio";
 import GlobalAudioPlayer from "../global-audio-player/global-audio-player";
+import { formatAudioTime } from "@/app/utils/formatAudioTime";
 
 export default function PlaylistPlayer() {
   const player = useAppSelector((state) => state.player);
@@ -48,9 +49,8 @@ export default function PlaylistPlayer() {
   };
 
   return (
-    <div className="grid grid-cols-[300px_400px] gap-y-4 justify-center">
-      <div className=""></div>
-      <ul className="flex gap-4 col-span-1 justify-between pl-2">
+    <div className="flex flex-col gap-y-4 justify-center">
+      <ul className="flex gap-4 col-span-1 pl-2">
         {genres.map((genre, key) => (
           <button
             key={key}
@@ -61,9 +61,9 @@ export default function PlaylistPlayer() {
           </button>
         ))}
       </ul>
-      <div className="bg-gradient-to-r from-[#F18336] to-[#D12B2D] w-full h-[300px] relative">
-        <PlaylistPlayerControls {...{ audioRef, progressRef }} />
-        <PlaylistPlayerTrack {...{ audioRef, progressRef }} />
+      <div className="">
+        <PlaylistPlayerControls {...{ audioRef, progressRef, setDuration }} />
+        <PlaylistPlayerTrack {...{ audioRef, progressRef, setDuration }} />
       </div>
       <ul className="list-inside list-none flex flex-col">
         {audios[selected_genre]?.songs?.map((track, key) => (
@@ -88,7 +88,7 @@ export default function PlaylistPlayer() {
                   {track.name.slice(38)}
                 </span>
                 <time className="block ml-auto text-white/60 text-xs group-hover:text-white">
-                  1:11
+                  {track.duration}
                 </time>
               </button>
             </div>
