@@ -8,14 +8,14 @@ export const EquipmentSection = () => {
       <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x border-black">
         <ul className="grid grid-cols-2 xl:grid-cols-3 gap-6">
           {equipments.map((item) => (
-            <li key={item.id}>
+            <li key={item.id} className="group">
               <Link href={item.img} className="flex flex-col gap-6">
                 <div className="relative max-w-[400px] aspect-[4/3]">
                   <Image
                     src={item.img}
                     alt={item.name}
                     fill
-                    className="object-contain"
+                    className="object-contain hover:scale-105 transition ease-in duration-200"
                     sizes="(max-width: 768px) 100vw"
                   />
                 </div>

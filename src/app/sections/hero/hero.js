@@ -24,8 +24,8 @@ export const HeroSection = () => {
             </div>
           </h1>
           <div className="flex flex-col items-start md:items-center gap-y-4 lg:flex-row lg:justify-between lg:items-end">
-            <Link
-              href=""
+            <a
+              href="https://yandex.ru/maps/-/C2uJNrr"
               className="lg:ml-20 mt-6 flex space-x-3 items-center group"
             >
               <svg
@@ -47,12 +47,12 @@ export const HeroSection = () => {
                   d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
                 />
               </svg>
-              <span className="text-sm md:text-xl font-normal text-white group-hover:text-gray-300 transition ease-in">
+              <span className="block text-sm md:text-xl font-normal text-white group-hover:text-gray-300 transition ease-in">
                 ул. Большие Каменщики 21/8
               </span>
-            </Link>
+            </a>
             <Link
-              href="tel:"
+              href="tel:+79933987552"
               className="flex space-x-3 text-xl items-center group"
             >
               <svg
@@ -70,7 +70,7 @@ export const HeroSection = () => {
                 />
               </svg>
               <span className="font-normal text-sm md:text-xl text-white group-hover:text-gray-300 transition ease-in">
-                +100 (200) 300-40-50
+                +7 (993) 398 75 52
               </span>
             </Link>
           </div>

@@ -5,6 +5,9 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    mdxRs: true,
+  },
   webpack(config, options) {
     config.module.rules.push({
       test: /\.(mp3)$/,
@@ -18,4 +21,5 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+const withMDX = require("@next/mdx")();
+module.exports = withMDX(nextConfig);

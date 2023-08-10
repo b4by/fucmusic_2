@@ -29,7 +29,10 @@ export const Footer = () => {
                   </Link>
                 </div>
                 <div className="flex flex-col gap-y-6 lg:gap-y-3 lg:items-center">
-                  <Link href="#" className="flex space-x-2 items-center group">
+                  <a
+                    href="https://yandex.ru/maps/-/C2uJNrr"
+                    className="flex space-x-2 items-center group"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -52,9 +55,9 @@ export const Footer = () => {
                     <span className="text-sm font-normal text-white leading-none group-hover:text-gray-300">
                       ул. Большие Каменщики 21/8
                     </span>
-                  </Link>
+                  </a>
                   <Link
-                    href="tel:5345"
+                    href="tel:+79933987552"
                     className="flex space-x-2 items-center group"
                   >
                     <svg
@@ -72,10 +75,93 @@ export const Footer = () => {
                       ></path>
                     </svg>
                     <span className="text-sm font-normal text-white leading-none group-hover:text-gray-300">
-                      +100 (200) 300-40-50
+                      +7 (993) 398 75 52
                     </span>
                   </Link>
                 </div>
+                <ul className="flex gap-4 items-center">
+                  <li>
+                    <a href="/#vk" className="group">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        className="group-hover:hidden h-[40px] w-[40px]"
+                      >
+                        <g clipPath="url(#clip0_186_6683)">
+                          <path
+                            fill="#000"
+                            d="M0 11.52c0-5.43 0-8.146 1.687-9.833C3.374 0 6.09 0 11.52 0h.96c5.43 0 8.146 0 9.833 1.687C24 3.374 24 6.09 24 11.52v.96c0 5.43 0 8.146-1.687 9.833C20.626 24 17.911 24 12.48 24h-.96c-5.43 0-8.146 0-9.833-1.687C0 20.626 0 17.911 0 12.48v-.96z"
+                          ></path>
+                          <path
+                            fill="#fff"
+                            d="M12.77 17.29c-5.47 0-8.59-3.75-8.72-9.99h2.74c.09 4.58 2.11 6.52 3.71 6.92V7.3h2.58v3.95c1.58-.17 3.24-1.97 3.8-3.95h2.58c-.43 2.44-2.23 4.24-3.51 4.98 1.28.6 3.33 2.17 4.11 5.01h-2.84c-.61-1.9-2.13-3.37-4.14-3.57v3.57h-.31z"
+                          ></path>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_186_6683">
+                            <path fill="#fff" d="M0 0H24V24H0z"></path>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        className="hidden group-hover:block h-[40px] w-[40px]"
+                      >
+                        <g clipPath="url(#clip0_196_3839)">
+                          <path
+                            fill="#07F"
+                            d="M0 11.52c0-5.43 0-8.146 1.687-9.833C3.374 0 6.09 0 11.52 0h.96c5.43 0 8.146 0 9.833 1.687C24 3.374 24 6.09 24 11.52v.96c0 5.43 0 8.146-1.687 9.833C20.626 24 17.911 24 12.48 24h-.96c-5.43 0-8.146 0-9.833-1.687C0 20.626 0 17.911 0 12.48v-.96z"
+                          ></path>
+                          <path
+                            fill="#fff"
+                            d="M12.77 17.29c-5.47 0-8.59-3.75-8.72-9.99h2.74c.09 4.58 2.11 6.52 3.71 6.92V7.3h2.58v3.95c1.58-.17 3.24-1.97 3.8-3.95h2.58c-.43 2.44-2.23 4.24-3.51 4.98 1.28.6 3.33 2.17 4.11 5.01h-2.84c-.61-1.9-2.13-3.37-4.14-3.57v3.57h-.31z"
+                          ></path>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_196_3839">
+                            <path fill="#fff" d="M0 0H24V24H0z"></path>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" className="group">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                        className="group-hover:fill-[#29b6f6] w-[40px] h-[40px]"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M24 4a20 20 0 100 40 20 20 0 100-40z"
+                          className="group-hover:fill-[#29b6f6]"
+                        ></path>
+                        <path
+                          fill="#fff"
+                          d="M33.95 15l-3.746 19.126s-.161.874-1.245.874c-.576 0-.873-.274-.873-.274l-8.114-6.733-3.97-2.001-5.095-1.355S10 24.375 10 23.625c0-.625.933-.923.933-.923l21.316-8.468c-.001-.001.651-.235 1.126-.234.292 0 .625.125.625.5 0 .25-.05.5-.05.5z"
+                        ></path>
+                        <path
+                          fill="#b0bec5"
+                          d="M23 30.505l-3.426 3.374s-.149.115-.348.12a.494.494 0 01-.219-.043l.964-5.965L23 30.505z"
+                        ></path>
+                        <path
+                          fill="#cfd8dc"
+                          d="M29.897 18.196a.5.5 0 00-.701-.093L16 26s2.106 5.892 2.427 6.912c.322 1.021.58 1.045.58 1.045l.964-5.965 9.832-9.096a.499.499 0 00.094-.7z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
               </div>
               <nav className="flex-col flex lg:flex-row gap-8 mt-11">
                 {navLinks.map((link) => (

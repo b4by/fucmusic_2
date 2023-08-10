@@ -8,9 +8,9 @@ export const WhySection = () => {
         <div className="mb-12">
           <div className="xl:absolute xl:left-[100px]">
             <div className="mb-8 max-w-[400px] aspect-[4/3] relative xl:w-[400px] xl:h-[300px] lg:max-w-[400px] lg:aspect-[4/3]">
-              <Link href="/images/photos/1.jpgg">
+              <Link href="/images/photos/18.jpg">
                 <Image
-                  src="/images/photos/1.jpg"
+                  src="/images/photos/18.jpg"
                   fill
                   alt="фото студии"
                   sizes="(max-width: 768px) 100vw"
@@ -37,25 +37,30 @@ export const WhySection = () => {
           </div>
         </div>
         <ul className="flex flex-col gap-y-4 list-inside md:flex-row gap-x-4 items-start font-bold uppercase text-md md:text-xs xl:text-md">
-          <li className="flex gap-x-4">
-            <h3>Центр москвы</h3>
-            <span className="hidden md:block text-transparent bg-clip-text bg-gradient-to-r from-[#F18336] to-[#D12B2D]">
+          <li className="relative flex gap-x-4">
+            <h3 className="pl-6">10 лет работы</h3>
+            <span className="absolute left-0 md:block text-transparent bg-clip-text bg-gradient-to-r from-[#F18336] to-[#D12B2D]">
               ⬤
             </span>
           </li>
-          <li className="flex gap-x-4">
-            <h3>10 лет работы</h3>
-            <span className="hidden md:block text-transparent bg-clip-text bg-gradient-to-r from-[#F18336] to-[#D12B2D]">
+          <li className="relative flex gap-x-4">
+            <h3 className="pl-6">Центр москвы</h3>
+            <span className="absolute left-0 md:block text-transparent bg-clip-text bg-gradient-to-r from-[#F18336] to-[#D12B2D]">
               ⬤
             </span>
           </li>
-          <li className="flex gap-x-4">
-            <h3>Самая выгодная аренда</h3>
-            <span className="hidden md:block text-transparent bg-clip-text bg-gradient-to-r from-[#F18336] to-[#D12B2D]">
+          <li className="relative flex gap-x-4">
+            <h3 className="pl-6">Самая выгодная аренда</h3>
+            <span className="absolute left-0 md:block text-transparent bg-clip-text bg-gradient-to-r from-[#F18336] to-[#D12B2D]">
               ⬤
             </span>
           </li>
-          <li>Професиональное оборудование</li>
+          <li className="relative flex gap-x-4">
+            <h3 className="pl-6">Професиональное оборудование</h3>
+            <span className="absolute left-0 md:block text-transparent bg-clip-text bg-gradient-to-r from-[#F18336] to-[#D12B2D]">
+              ⬤
+            </span>
+          </li>
         </ul>
       </section>
     </section>

@@ -40,3 +40,47 @@ body {
 .bounce-icon span:nth-of-type(3) {
   animation-delay: -3.7s;
 }
+
+.swiper-container {
+  width: 480px;
+}
+
+@media screen and (min-width: 640px) {
+  .swiper-container {
+    width: 640px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-container {
+    width: 768px;
+  }
+}
+
+:root {
+  --swiper-pagination-color: var(--swiper-theme-color);
+  --swiper-pagination-bottom: -30px;
+}
+
+.swiper-wrapper {
+  padding-bottom: 30px;
+}
+
+/* Scroolbar */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e3e3e3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#f18336, #d12b2d);
+  border-radius: 4px;
+}
+
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */

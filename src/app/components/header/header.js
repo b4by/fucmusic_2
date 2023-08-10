@@ -2,7 +2,6 @@
 import { navLinks } from "@/app/constants";
 import Link from "next/link";
 import { useState } from "react";
-import { twMerge } from "tailwind-merge";
 import { Logo } from "../logo/logo";
 
 export const Header = () => {
