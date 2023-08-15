@@ -24,7 +24,6 @@ export const PlaylistPlayerTrack = ({
         <audio
           ref={audioRef}
           onLoadedMetadata={onLoadedMetadata}
-          preload="true"
           src={selected_track}
         ></audio>
       )}

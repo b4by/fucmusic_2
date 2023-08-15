@@ -6,6 +6,9 @@ export const EquipmentSection = () => {
   return (
     <section className="bg-white" id="equipments">
       <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x border-black">
+        <h2 className="text-black font-bold uppercase text-3xl lg:text-4xl mb-16 break-words">
+          Оборудование
+        </h2>
         <ul className="grid grid-cols-2 xl:grid-cols-3 gap-6">
           {equipments.map((item) => (
             <li key={item.id} className="group">

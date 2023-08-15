@@ -7,11 +7,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 export const PhotosSection = () => {
   return (
     <section className="" id="photos">
-      <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x  text-white">
-        <div className="flex justify-center">
+      <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x text-white">
+        <h2 className="text-white font-bold uppercase text-4xl mb-16">Фото</h2>
+        <div className="flex justify-center mb-[40px]">
           <Swiper
             modules={[Pagination]}
-            pagination={{ clickable: true }}
+            pagination={{
+              el: ".swiper-photo-pagination",
+              clickable: true,
+            }}
             spaceBetween={30}
             breakpoints={{
               0: {
@@ -27,7 +31,7 @@ export const PhotosSection = () => {
           >
             {photos.map((photo) => (
               <SwiperSlide key={photo.id}>
-                <li className="xl:grayscale transition-all duration-200 ease-in hover:grayscale-0 hover:scale-105">
+                <div className="xl:grayscale transition-all duration-200 ease-in hover:grayscale-0 hover:scale-105">
                   <Link href={photo.src}>
                     <Image
                       src={photo.src}
@@ -36,11 +40,12 @@ export const PhotosSection = () => {
                       alt="фотография студии"
                     />
                   </Link>
-                </li>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
+        <div className="swiper-photo-pagination"></div>
       </div>
     </section>
   );

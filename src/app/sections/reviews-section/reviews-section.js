@@ -9,12 +9,17 @@ import "swiper/css/pagination";
 export const ReviewsSection = () => {
   return (
     <section className="bg-black" id="reviews">
-      <div className="mx-auto border-white max-w-7xl border-x lg:px-24 lg:py-36 px-8 py-24">
-        <h3 className="text-white uppercase text-xl mb-8">Отзывы с Авито</h3>
-        <ul className="flex">
+      <div className="mx-auto border-white max-w-7xl border-x lg:px-24 py-12 px-8">
+        <h3 className="text-white font-bold uppercase text-4xl mb-16">
+          Отзывы с Авито
+        </h3>
+        <ul className="flex mb-8">
           <Swiper
             modules={[Pagination]}
-            pagination={{ clickable: true }}
+            pagination={{
+              el: ".swiper-review-pagination",
+              clickable: true,
+            }}
             spaceBetween={30}
             breakpoints={{
               0: {
@@ -41,6 +46,7 @@ export const ReviewsSection = () => {
             ))}
           </Swiper>
         </ul>
+        <div className="swiper-review-pagination"></div>
         <a
           href="https://www.avito.ru/moskva/predlozheniya_uslug/studii_zvukozapisi_arenda_247zapissvedenie_3058704276#open-reviews-list"
           className="block text-white/60 text-sm duration-200 ease-in-out focus:outline-none focus:shadow-none focus:text-white/5 hover:text-white lg:py-4 mt-4 py-2 transform transition lg:ml-auto"

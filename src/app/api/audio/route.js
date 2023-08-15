@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { audio } from "./audio";
+import { songs } from "./songs";
 
 export async function GET(req, res) {
-  return NextResponse.json(audio);
+  return NextResponse.json(songs);
 }

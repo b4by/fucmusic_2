@@ -1,11 +1,13 @@
-import { tracks } from "@/app/constants";
+import { songs } from "@/app/constants";
 
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
-  selected_genre: "Pop",
-  selected_track: null,
+  currentGenre: "Pop",
+  currentSongIndex: 0,
   isPlaying: false,
+  mute: false,
+  volume: 30,
 };
 
 export const playerSlice = createSlice({
@@ -13,34 +15,18 @@ export const playerSlice = createSlice({
   initialState,
   reducers: {
     changeGenre: (state, action) => {
-      state.selected_genre = action.payload;
+      state.currentGenre = action.payload;
     },
-    chooseTrack: (state, action) => {
-      if (state.selected_track === action.payload) {
-        state.isPlaying = false;
-        return;
-      }
-      state.selected_track = action.payload;
-      state.isPlaying = true;
+    changeSongIndex: (state, action) => {
+      state.currentSongIndex = action.payload;
     },
     changePlayingState: (state, action) => {
-      if (state.selected_track == null) {
-        state.selected_track = tracks[state.selected_genre].songs[0];
-        state.isPlaying = action.payload;
-      }
-      if (state.isPlaying) {
-        state.isPlaying = action.payload;
-      }
-    },
-    chooseNextTrack: (state, action) => {
-      const playlistLength = tracks[state.selected_genre].songs.length;
-      state.selected_track =
-        tracks[state.selected_genre].songs[action.payload + 1];
+      state.isPlaying = action.payload;
     },
   },
 });
 
-export const { changeGenre, changePlayingState, chooseTrack } =
+export const { changeGenre, changePlayingState, changeSongIndex } =
   playerSlice.actions;
 
 export default playerSlice.reducer;

@@ -5,7 +5,7 @@ export const ContactsSection = () => {
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x border-black">
-        <h3 className="mb-8 text-4xl font-semibold uppercase">
+        <h3 className="text-black font-bold uppercase text-4xl mb-16">
           Как к нам пройти
         </h3>
         <iframe

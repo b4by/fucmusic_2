@@ -27,7 +27,7 @@ export const Modal = () => {
 
   return (
     <Link
-      className="fixed top-0 left-0 w-full h-full bg-zinc-800 bg-opacity-50 flex flex-col justify-center items-center z-[1000]"
+      className="fixed top-0 left-0 w-full h-full bg-zinc-800 bg-opacity-50 flex flex-col justify-center items-center z-[9999] p-6"
       href="/"
       scroll={false}
     >

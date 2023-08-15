@@ -1,9 +1,12 @@
 import { services } from "@/app/constants";
-import { TitleSection } from "../title-section/title-section";
 import Image from "next/image";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { useRef } from "react";
 
 const PriceEl = ({ price }) => {
   if (!price.from) {
@@ -37,16 +40,19 @@ export const ServicesSection = () => {
   const router = useRouter();
   return (
     <section className="overflow-hidden bg-black" id="services">
-      <div className="py-36 lg:py-16 mx-auto max-w-7xl px-8 lg:px-24 items-center border-white border-y-0 border bg-black text-black relative">
-        <div className="mx-auto max-w-7xl px-8">
-          <h2 className="text-white font-bold uppercase absolute -left-[55px] top-[120px] -rotate-90">
-            Услуги
-          </h2>
-          <ul className="flex justify-center">
+      <div className="py-8 lg:py-16 mx-auto max-w-7xl items-center  px-8 lg:px-24 border-white border-y-0 border bg-black text-black relative">
+        <h2 className="text-white font-bold uppercase text-4xl mb-16">
+          Услуги
+        </h2>
+        <div className="mx-auto max-w-7xl">
+          <ul className="flex justify-center mb-[30px]">
             <Swiper
               modules={[Pagination]}
-              pagination={{ clickable: true }}
               spaceBetween={30}
+              pagination={{
+                el: ".swiper-custom-pagination",
+                clickable: true,
+              }}
               breakpoints={{
                 0: {
                   slidesPerView: 1,
@@ -56,6 +62,9 @@ export const ServicesSection = () => {
                 },
                 768: {
                   slidesPerView: 3,
+                },
+                1048: {
+                  slidesPerView: 4,
                 },
               }}
             >
@@ -93,6 +102,7 @@ export const ServicesSection = () => {
               ))}
             </Swiper>
           </ul>
+          <div className="swiper-custom-pagination"></div>
         </div>
       </div>
     </section>

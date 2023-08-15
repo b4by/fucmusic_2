@@ -1,6 +1,6 @@
 export { genres } from "./genres.js";
 export { navLinks } from "./navLinks.js";
-export { tracks } from "./tracks.js";
+export { songs } from "./songs.js";
 export { services } from "./services.js";
 export { photos } from "./photos.js";
 export { reviews } from "./reviews.js";

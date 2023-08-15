@@ -3,7 +3,7 @@ import Image from "next/image";
 export const DescriptionSection = () => {
   return (
     <section className="overflow-hidden">
-      <section className="bg-transparent py-36 lg:py-16 mx-auto max-w-7xl px-8 lg:px-24 items-center border-white border-y-0 border bg-pattern bg-contain relative">
+      <section className="bg-transparent py-4 lg:py-16 mx-auto max-w-7xl px-8 lg:px-24 items-center border-white border-y-0 border bg-pattern bg-contain relative">
         <div className="bg-descriptionImg w-[200px] bg-no-repeat bg-contain"></div>
         <div className="flex gap-6">
           <div className="text-white max-w-xl py-6">

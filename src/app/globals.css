@@ -58,12 +58,10 @@ body {
 }
 
 :root {
-  --swiper-pagination-color: var(--swiper-theme-color);
-  --swiper-pagination-bottom: -30px;
-}
-
-.swiper-wrapper {
-  padding-bottom: 30px;
+  --swiper-pagination-color: linear-gradient(to right, #f18336, #d12b2d);
+  --swiper-pagination-bullet-size: 14px;
+  --swiper-pagination-bullet-inactive-color: #efefef;
+  --swiper-pagination-bullet-inactive-opacity: 0.3;
 }
 
 /* Scroolbar */

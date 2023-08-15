@@ -4,7 +4,7 @@ import Link from "next/link";
 export const WhySection = () => {
   return (
     <section className="overflow-hidden bg-white">
-      <section className="py-36 lg:py-16 mx-auto max-w-7xl px-8 lg:px-24 items-center border-black border-y-0 border bg-white text-black relative">
+      <section className="py-8 lg:py-16 mx-auto max-w-7xl px-8 lg:px-24 items-center border-black border-y-0 border bg-white text-black relative">
         <div className="mb-12">
           <div className="xl:absolute xl:left-[100px]">
             <div className="mb-8 max-w-[400px] aspect-[4/3] relative xl:w-[400px] xl:h-[300px] lg:max-w-[400px] lg:aspect-[4/3]">

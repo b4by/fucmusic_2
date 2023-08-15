@@ -1,100 +1,65 @@
 "use client";
-
-import { useAppDispatch, useAppSelector } from "@/app/hooks/hooks";
-import {
-  changeGenre,
-  chooseTrack,
-  changePlayingState,
-  setPlaying,
-} from "@/app/store/slice/playerSlice";
-import { twMerge } from "tailwind-merge";
-import { BounceIcon } from "@/app/components/icons/bounce-icon/bounce-icon";
 import { genres } from "@/app/constants";
 import { useEffect, useRef, useState } from "react";
-import { PlaylistPlayerControls } from "./playlist-player-controls/playlist-player-controls";
-import { PlaylistPlayerTrack } from "./playlist-player-track/playlist-player-track";
 import { getAllAudio } from "@/app/services/getAllAudio";
-import GlobalAudioPlayer from "../global-audio-player/global-audio-player";
-import { formatAudioTime } from "@/app/utils/formatAudioTime";
+import AudioPlaylistContainer from "../audio-playlist/audio-playlist-container";
+import { useAppDispatch } from "@/app/hooks/hooks";
+import { changeGenre } from "@/app/store/slice/playerSlice";
 
 export default function PlaylistPlayer() {
-  const player = useAppSelector((state) => state.player);
   const dispatch = useAppDispatch();
-  const selected_genre = player.selected_genre;
-  const selected_track = player.selected_track;
-  const isPlaying = player.isPlaying;
-  const [audios, setAudios] = useState([]);
-  const [timeProgress, setTimeProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
-
-  const audioRef = useRef();
-  const progressRef = useRef();
+  const [songs, setSongs] = useState([]);
 
   useEffect(() => {
-    getAllAudio().then(setAudios);
+    getAllAudio().then(setSongs);
   }, []);
 
-  const handleTrackClick = (track) => {
-    if (track.src === selected_track && audioRef.current) {
-      isPlaying ? audioRef.current.pause() : audioRef.current.pause();
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
+  const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
+
+  const tabsRef = useRef([]);
+
+  useEffect(() => {
+    function setTabPosition() {
+      const currentTab = tabsRef.current[activeTabIndex];
+      console.log(currentTab?.offsetLeft, currentTab?.clientWidth);
+      setTabUnderlineLeft(currentTab?.offsetLeft ?? 0);
+      setTabUnderlineWidth(currentTab?.clientWidth ?? 0);
     }
-    dispatch(chooseTrack(encodeURI(track.src)));
-    if (isPlaying) {
-      audioRef.current && audioRef.current.pause();
-      dispatch(changePlayingState(false));
-    } else {
-      audioRef.current && audioRef.current.play();
-      dispatch(changePlayingState(true));
-    }
-  };
+
+    setTabPosition();
+    window.addEventListener("resize", setTabPosition);
+
+    return () => window.removeEventListener("resize", setTabPosition);
+  }, [activeTabIndex]);
 
   return (
     <div className="flex flex-col gap-y-4 justify-center">
-      <ul className="flex gap-4 col-span-1 pl-2">
-        {genres.map((genre, key) => (
-          <button
-            key={key}
-            className="text-white uppercase text-xs overflow-hidden p-6  bg-gradient-to-r from-[#F18336] to-[#D12B2D] bg-fixed"
-            onClick={() => dispatch(changeGenre(genre.label))}
-          >
-            {genre.content}
-          </button>
-        ))}
-      </ul>
-      <div className="">
-        <PlaylistPlayerControls {...{ audioRef, progressRef, setDuration }} />
-        <PlaylistPlayerTrack {...{ audioRef, progressRef, setDuration }} />
-      </div>
-      <ul className="list-inside list-none flex flex-col">
-        {audios[selected_genre]?.songs?.map((track, key) => (
-          <li key={key} onClick={() => handleTrackClick(track)}>
-            <div className="flex items-center">
+      <div class="relative">
+        <div className="flex space-x-6">
+          {genres.map((genre, idx) => {
+            return (
               <button
-                className={twMerge(
-                  "flex items-center group flex-shrink-0 flex-grow transition-all ease-in duration-200 hover:bg-white/10 px-2 py-3",
-                  selected_track === encodeURI(track.src)
-                    ? "bg-white/10"
-                    : "bg-transparent"
-                )}
+                key={idx}
+                ref={(el) => (tabsRef.current[idx] = el)}
+                className="text-white pt-2 pb-3 uppercase font-bold md:text-2xl transition-all duration-300 hover:opacity-75"
+                onClick={() => {
+                  setActiveTabIndex(idx);
+                  dispatch(changeGenre(genre.label));
+                }}
               >
-                <div className="w-8 h-8 relative flex flex-col justify-center items-center mr-3 text-white/60 text-sm">
-                  {isPlaying && selected_track === encodeURI(track.src) ? (
-                    <BounceIcon />
-                  ) : (
-                    key + 1
-                  )}
-                </div>
-                <span className="text-white/60 text-sm group-hover:text-white">
-                  {track.name.slice(38)}
-                </span>
-                <time className="block ml-auto text-white/60 text-xs group-hover:text-white">
-                  {track.duration}
-                </time>
+                {genre.content}
               </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+            );
+          })}
+        </div>
+        <span
+          className="absolute bottom-0 block h-1 from-[#F18336] to-[#D12B2D] bg-gradient-to-r transition-all duration-300"
+          style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
+        />
+      </div>
+      <AudioPlaylistContainer songs={songs} />
     </div>
   );
 }

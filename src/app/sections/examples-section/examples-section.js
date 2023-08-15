@@ -1,25 +1,17 @@
 import PlaylistPlayer from "@/app/components/playlist-player/playlist-player";
 import dynamic from "next/dynamic";
-const GlobalAudioPlayer = dynamic(
-  () => import("../../components/global-audio-player/global-audio-player"),
-  {
-    ssr: false,
-  }
-);
 
 export const ExamplesSection = () => {
   return (
-    <div className="relative" id="examples">
-      <section>
-        <div className="relative mx-auto max-w-7xl border-x border-white">
-          <h2 className="text-white font-bold uppercase absolute -left-[85px] top-[120px] -rotate-90">
-            Наши работы
-          </h2>
-          <div className="mx-auto py-16 px-8">
-            <PlaylistPlayer />
-          </div>
+    <section className="relative" id="examples">
+      <div className="py-8 lg:py-16 mx-auto max-w-7xl items-center  px-8 lg:px-24 border-white border-y-0 border bg-black text-black relative">
+        <h2 className="text-white font-bold uppercase text-4xl mb-16">
+          Наши работы
+        </h2>
+        <div className="mx-auto">
+          <PlaylistPlayer />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };

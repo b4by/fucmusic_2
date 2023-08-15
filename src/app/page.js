@@ -16,6 +16,7 @@ import { MessengersBitrix } from "./components/analytics/messengers-bitrix";
 import { useSearchParams } from "next/navigation";
 import { ContactsSection } from "./sections/contacts-section/contacts-section";
 import { Modal } from "./components/modal/modal";
+import { GlobalPlayer } from "./components/global-player/global-player";
 
 export default function Home() {
   return (
@@ -25,20 +26,20 @@ export default function Home() {
         <FormBitrix />
         <MessengersBitrix />
       </>
-      <HeroSection />
-      <VideoButtonSection />
-      <DescriptionSection />
-      <WhySection />
       <Provider store={store}>
+        <HeroSection />
+        <VideoButtonSection />
+        <DescriptionSection />
+        <WhySection />
         <ExamplesSection />
+        <ServicesSection />
+        <EquipmentSection />
+        <PhotosSection />
+        <ReviewsSection />
+        <ContactsSection />
+        <Modal />
+        {/* <GlobalPlayer /> */}
       </Provider>
-      <ServicesSection />
-      <EquipmentSection />
-      <PhotosSection />
-      <ReviewsSection />
-      <ContactsSection />
-      {/* <FormSection /> */}
-      <Modal />
     </>
   );
 }
