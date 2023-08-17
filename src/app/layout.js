@@ -10,6 +10,7 @@ import { store } from "./store/store";
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
 export const metadata = {
+  metadataBase: new URL("https://fucmusic.ru"),
   title: "Fuc Music - студия звукозаписи, Москва, Таганская",
   description:
     "Fuc Music - студия звукозаписи, Москва, Таганская. Аренда студии звукозаписи. Высококласснное оборудование. Качественная запись вокала и инструментов. Сведение и мастеринг. Песня под ключ. Забронировать онлайн.",

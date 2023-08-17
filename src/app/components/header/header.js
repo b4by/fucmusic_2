@@ -3,10 +3,10 @@ import { navLinks } from "@/app/constants";
 import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "../logo/logo";
-import { FormBirtix } from "../analytics/form-bitrix";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const isClient = typeof window !== "undefined";
 
   return (
     <div className="w-full mx-auto justify-center border-b border-white">
@@ -64,19 +64,21 @@ export const Header = () => {
               {link.name}
             </Link>
           ))}
-          <script data-b24-form="click/56/06885t" data-skip-moving="true">
-            {(function (w, d, u) {
-              var s = d.createElement("script");
-              s.async = true;
-              s.src = u + "?" + ((Date.now() / 180000) | 0);
-              var h = d.getElementsByTagName("script")[0];
-              h.parentNode.insertBefore(s, h);
-            })(
-              window,
-              document,
-              "https://cdn-ru.bitrix24.ru/b25437620/crm/form/loader_56.js"
-            )}
-          </script>
+          {isClient && (
+            <script data-b24-form="click/56/06885t" data-skip-moving="true">
+              {(function (w, d, u) {
+                var s = d.createElement("script");
+                s.async = true;
+                s.src = u + "?" + ((Date.now() / 180000) | 0);
+                var h = d.getElementsByTagName("script")[0];
+                h.parentNode.insertBefore(s, h);
+              })(
+                window,
+                document,
+                "https://cdn-ru.bitrix24.ru/b25437620/crm/form/loader_56.js"
+              )}
+            </script>
+          )}
           <button className="text-white/60 text-sm duration-200 ease-in-out focus:outline-none focus:shadow-none focus:text-white hover:text-white p-2 transform transition lg:ml-auto border border-white/60  hover:border-white">
             Записаться
           </button>

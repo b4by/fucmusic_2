@@ -7,6 +7,7 @@ export const FormBirtix = () => {
       id="birtix-button"
       data-b24-form="click/56/06885t"
       data-skip-moving="true"
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{
         __html: `(function(w,d,u){
       var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);

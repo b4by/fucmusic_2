@@ -38,6 +38,7 @@ export const PhotosSection = () => {
                       width="600"
                       height="300"
                       alt="фотография студии"
+                      loading="lazy"
                     />
                   </Link>
                 </div>

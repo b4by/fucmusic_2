@@ -20,6 +20,7 @@ export const EquipmentSection = () => {
                     fill
                     className="object-contain hover:scale-105 transition ease-in duration-200"
                     sizes="(max-width: 768px) 100vw"
+                    loading="lazy"
                   />
                 </div>
                 <span className="text-sm">{item.name}</span>
