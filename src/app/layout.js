@@ -33,7 +33,7 @@ export const metadata = {
     siteName: "Fuc Music",
     images: [
       {
-        url: "https://fucmusic.ru/images/fuc_music_music_studio_logo.png",
+        url: "/images/fuc_music_music_studio_logo.png",
         width: "800",
         height: "600",
       },
