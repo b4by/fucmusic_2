@@ -33,9 +33,10 @@ export const metadata = {
     siteName: "Fuc Music",
     images: [
       {
-        url: "/images/fuc_music_music_studio_logo.png",
+        url: "/images/fuc_music_music_studio_logo.jpg",
         width: "800",
         height: "600",
+        type: "image/jpg",
       },
     ],
   },
