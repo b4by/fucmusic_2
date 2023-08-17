@@ -85,7 +85,7 @@ export const ServicesSection = () => {
                       className="mb-3"
                       alt={service.name}
                     />
-                    <h4 className="text-white font-medium uppercase truncate mb-2 max-w-[260px]">
+                    <h4 className="text-white font-medium uppercase truncate mb-2">
                       {service.name}
                     </h4>
                     <div className="text-white flex gap-x-4">

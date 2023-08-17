@@ -23,7 +23,6 @@ export default function Home() {
     <>
       <>
         <YandexAnalytics />
-        <FormBitrix />
         <MessengersBitrix />
       </>
       <Provider store={store}>

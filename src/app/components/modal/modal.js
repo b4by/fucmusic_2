@@ -31,7 +31,7 @@ export const Modal = () => {
       href="/"
       scroll={false}
     >
-      <div className="relative bg-white p-12 max-w-[400px]">
+      <div className="relative bg-white p-6 max-w-[400px]">
         <span
           href="/"
           scroll={false}

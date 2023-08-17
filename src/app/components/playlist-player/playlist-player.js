@@ -36,7 +36,7 @@ export default function PlaylistPlayer() {
 
   return (
     <div className="flex flex-col gap-y-4 justify-center">
-      <div class="relative">
+      <div className="relative">
         <div className="flex space-x-6">
           {genres.map((genre, idx) => {
             return (
