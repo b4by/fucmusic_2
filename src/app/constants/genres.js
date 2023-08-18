@@ -13,6 +13,6 @@ export const genres = [
   },
   {
     label: "Electronic",
-    content: "Электроника",
+    content: "Электронная",
   },
 ];
