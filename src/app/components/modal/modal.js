@@ -14,6 +14,7 @@ import Service9 from "@/app/mdx/services/9.mdx";
 import Service10 from "@/app/mdx/services/10.mdx";
 import Service11 from "@/app/mdx/services/11.mdx";
 import Service12 from "@/app/mdx/services/12.mdx";
+import "./modal.css";
 
 export const Modal = () => {
   const searchParams = useSearchParams();
