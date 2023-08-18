@@ -1,5 +1,4 @@
 import PlaylistPlayer from "@/app/components/playlist-player/playlist-player";
-import dynamic from "next/dynamic";
 
 export const ExamplesSection = () => {
   return (

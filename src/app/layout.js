@@ -53,7 +53,6 @@ export default function RootLayout({ children }) {
         <Header />
         <Content>{children}</Content>
         <Footer />
-        <Spectrum />
       </body>
     </html>
   );

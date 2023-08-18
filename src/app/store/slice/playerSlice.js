@@ -1,5 +1,3 @@
-import { songs } from "@/app/constants";
-
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
@@ -14,19 +12,30 @@ export const playerSlice = createSlice({
   name: "player",
   initialState,
   reducers: {
-    changeGenre: (state, action) => {
+    changeCurrentGenre: (state, action) => {
       state.currentGenre = action.payload;
     },
-    changeSongIndex: (state, action) => {
+    changeCurrentSongIndex: (state, action) => {
       state.currentSongIndex = action.payload;
     },
     changePlayingState: (state, action) => {
       state.isPlaying = action.payload;
     },
+    changeMuteState: (state, action) => {
+      state.mute = action.payload;
+    },
+    changeVolume: (state, action) => {
+      state.volume = action.payload;
+    },
   },
 });
 
-export const { changeGenre, changePlayingState, changeSongIndex } =
-  playerSlice.actions;
+export const {
+  changeCurrentGenre,
+  changeCurrentSongIndex,
+  changePlayingState,
+  changeMuteState,
+  changeVolume,
+} = playerSlice.actions;
 
 export default playerSlice.reducer;

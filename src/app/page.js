@@ -17,6 +17,7 @@ import { useSearchParams } from "next/navigation";
 import { ContactsSection } from "./sections/contacts-section/contacts-section";
 import { Modal } from "./components/modal/modal";
 import { GlobalPlayer } from "./components/global-player/global-player";
+import { Spectrum } from "./components/spectrum/spectrum";
 
 export default function Home() {
   return (

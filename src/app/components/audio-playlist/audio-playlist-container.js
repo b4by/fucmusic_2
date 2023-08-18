@@ -1,9 +1,6 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/app/hooks/hooks";
-import {
-  changePlayingState,
-  changeSongIndex,
-} from "@/app/store/slice/playerSlice";
+
 import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { BounceIcon } from "../icons/bounce-icon/bounce-icon";
@@ -11,6 +8,7 @@ import { songs } from "@/app/constants";
 
 const AudioPlaylistContainer = () => {
   const audioPlayer = useRef();
+  const dispatch = useAppDispatch();
   const player = useAppSelector((state) => state.player);
   const currentGenre = player.currentGenre;
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -69,6 +67,13 @@ const AudioPlaylistContainer = () => {
       audioPlayer.current.play();
       return;
     }
+    if (!isPlaying && currentSongIndex !== index) {
+      setIsPlaying((prev) => !prev);
+      audioPlayer.current.pause();
+      audioPlayer.current.src = songs[index].src;
+      audioPlayer.current.play();
+      return;
+    }
     if (!isPlaying) {
       audioPlayer.current.play();
     } else {
@@ -88,7 +93,7 @@ const AudioPlaylistContainer = () => {
               <div className="flex items-center">
                 <button
                   className={twMerge(
-                    "flex items-center group flex-shrink-0 flex-grow transition-all ease-in duration-200 hover:bg-white/10 px-2 py-3",
+                    "flex items-center group flex-shrink-0 flex-grow transition-all ease-in duration-200 hover:bg-white/10 pr-1 py-3",
                     isPlaying && currentSongIndex === song.id
                       ? "bg-white/10"
                       : "bg-transparent"
@@ -102,10 +107,10 @@ const AudioPlaylistContainer = () => {
                     )}
                   </div>
                   <span className="text-white/60 text-sm group-hover:text-white">
-                    {song.name.slice(38)}
+                    {song.name}
                   </span>
                   <time className="block ml-auto text-white/60 text-xs group-hover:text-white">
-                    {elapsed}
+                    {formatTime(song.duration)}
                   </time>
                 </button>
               </div>

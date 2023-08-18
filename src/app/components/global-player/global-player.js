@@ -4,7 +4,9 @@ export const GlobalPlayer = () => {
   const dispatch = useAppDispatch();
   const player = useAppSelector((state) => state.player);
   const isPlaying = player.isPlaying;
+
   const handlePlaying = () => {};
+
   return (
     <div className="bg-[#e3e3e3] fixed bottom-0 left-0 w-full z-[9998]">
       <div className="p-6 border-b border-black">

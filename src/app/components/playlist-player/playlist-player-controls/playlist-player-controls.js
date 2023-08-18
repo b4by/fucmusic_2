@@ -7,7 +7,7 @@ export const PlaylistPlayerControls = ({ audioRef }) => {
   const dispatch = useAppDispatch();
 
   const hanlePlayState = () => {
-    audioRef.current && console.log(audioRef.current);
+    // audioRef.current && console.log(audioRef.current);
   };
 
   return (
