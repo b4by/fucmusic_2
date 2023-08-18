@@ -1,9 +1,13 @@
 "use client";
 import AudioSpectrum from "react-audio-spectrum";
 import { useState, useEffect } from "react";
+import { useAppSelector } from "@/app/hooks/hooks";
+import { songs } from "@/app/constants";
 
 export const Spectrum = ({ audioUrl }) => {
   const [id, setId] = useState("");
+  const player = useAppSelector((state) => state.player);
+  const currentSongIndex = player.currentSongIndex;
 
   useEffect(() => {
     setId(audioUrl + "_Spectrum");
@@ -16,7 +20,7 @@ export const Spectrum = ({ audioUrl }) => {
         key={id}
         height={200}
         width={10000}
-        audioId={audioUrl}
+        audioId={songs[currentSongIndex].src}
         capColor={"rgb(28,25,23)"}
         capHeight={1}
         meterWidth={10}

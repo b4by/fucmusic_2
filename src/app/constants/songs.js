@@ -156,7 +156,7 @@ export const songs = [
   {
     id: 22,
     name: "CHERRY JAM (ЭЛЕКТРОННАЯ,BASS HOUSE)",
-    src: "https://fucmusic.ru/audio/electronic/FUC MUSIC СТУДИЯ ЗВУКОЗАПИСИ - CHERRY JAM (ЭЛЕКТРОННАЯ,BASS HOUSE).mp3",
+    src: "https://fucmusic.ru/audio/electronic/FUC MUSIC СТУДИЯ ЗВУКОЗАПИСИ - CHERRY JAM (BASS HOUSE).mp3",
     duration: "214",
     genre: "Electronic",
   },
@@ -177,7 +177,7 @@ export const songs = [
   {
     id: 25,
     name: "GIVE UP (ПОП,РЭП,ЭЛЕКТРОННАЯ,ЭМО)",
-    src: "https://fucmusic.ru/audio/electronic/FUC MUSIC СТУДИЯ ЗВУКОЗАПИСИ - GIVE UP (ПОП,РЭП,ЭЛЕКТРОННАЯ,ЭМО).mp3",
+    src: "https://fucmusic.ru/audio/electronic/FUC MUSIC СТУДИЯ ЗВУКОЗАПИСИ - GIVE UP (ПОП,РЭП,ЭМО).mp3",
     duration: "190",
     genre: "Electronic",
   },
@@ -191,7 +191,7 @@ export const songs = [
   {
     id: 27,
     name: "Без интереса (ЭЛЕКТРОННАЯ,РЭП,ПОП)",
-    src: "https://fucmusic.ru/audio/electronic/FUC MUSIC СТУДИЯ ЗВУКОЗАПИСИ - Без интереса (ЭЛЕКТРОННАЯ,РЭП,ПОП).mp3",
+    src: "https://fucmusic.ru/audio/electronic/FUC MUSIC СТУДИЯ ЗВУКОЗАПИСИ - Без интереса (РЭП,ПОП).mp3",
     duration: "164",
     genre: "Electronic",
   },

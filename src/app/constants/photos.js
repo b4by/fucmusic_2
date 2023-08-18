@@ -55,8 +55,4 @@ export const photos = [
     id: 13,
     src: "/images/photos/10.jpg",
   },
-  {
-    id: 14,
-    src: "/images/photos/14.jpg",
-  },
 ];

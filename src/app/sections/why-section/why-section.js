@@ -28,7 +28,7 @@ export const WhySection = () => {
             <h3 className="text-4xl font-bold uppercase">Почему мы</h3>
             <ul className="list-inside list-decimal flex flex-col gap-y-6">
               <li>
-                Перед тем как прийти к нам на студию, мы анализируем ваши
+                Перед тем как вы придёте к нам в студию, мы проанализируем ваши
                 запросы и пожелания
               </li>
               <li>
@@ -36,7 +36,7 @@ export const WhySection = () => {
               </li>
               <li>
                 Помогаем и направляем артиста в нужное русло, чтобы получить
-                наиболее уникальный результат и выделить артиста
+                уникальный результат.
               </li>
             </ul>
           </div>
@@ -61,7 +61,7 @@ export const WhySection = () => {
             </span>
           </li>
           <li className="relative flex gap-x-4">
-            <h3 className="pl-6">Професиональное оборудование</h3>
+            <h3 className="pl-6">Профессиональное оборудование</h3>
             <span className="absolute left-0 md:block text-transparent bg-clip-text bg-gradient-to-r from-[#F18336] to-[#D12B2D]">
               ⬤
             </span>

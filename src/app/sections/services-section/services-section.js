@@ -41,9 +41,10 @@ export const ServicesSection = () => {
   return (
     <section className="overflow-hidden bg-black" id="services">
       <div className="py-8 lg:py-16 mx-auto max-w-7xl items-center  px-8 lg:px-24 border-white border-y-0 border bg-black text-black relative">
-        <h2 className="text-white font-bold uppercase text-4xl mb-16">
-          Услуги
-        </h2>
+        <h2 className="text-white font-bold uppercase text-4xl mb-4">Услуги</h2>
+        <h3 className="text-white text-xs mb-16">
+          * узнать подробнее об услуге кликните на обложку
+        </h3>
         <div className="mx-auto max-w-7xl">
           <ul className="flex justify-center mb-[30px]">
             <Swiper
@@ -68,7 +69,40 @@ export const ServicesSection = () => {
                 },
               }}
             >
-              {services.map((service) => (
+              {services.slice(0, 1).map((service) => (
+                <SwiperSlide key={service.id}>
+                  <li
+                    className="flex flex-col max-w-fit cursor-pointer"
+                    onClick={() =>
+                      router.push(`?modal=true&service=${service.id}`, {
+                        scroll: false,
+                      })
+                    }
+                  >
+                    <div className="relative mb-3">
+                      <Image
+                        src={service.img}
+                        width="250"
+                        height="250"
+                        alt={service.name}
+                      />
+                    </div>
+                    <h4 className="text-white font-medium uppercase truncate mb-2">
+                      {service.name}
+                    </h4>
+                    <div className="text-white flex gap-x-4">
+                      <PriceEl price={service.price} />
+                      {service.sale && (
+                        <span className="line-through font-light text-md">
+                          {new Intl.NumberFormat("ru-RU").format(service.sale)}{" "}
+                          ₽
+                        </span>
+                      )}
+                    </div>
+                  </li>
+                </SwiperSlide>
+              ))}
+              {services.slice(1).map((service) => (
                 <SwiperSlide key={service.id}>
                   <li
                     className="flex flex-col max-w-fit cursor-pointer"

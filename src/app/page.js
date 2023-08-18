@@ -11,13 +11,9 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { PhotosSection } from "./sections/photos-section/photos-section";
 import YandexAnalytics from "./components/analytics/yandex-analytics";
-import { FormBitrix } from "./components/analytics/form-bitrix";
 import { MessengersBitrix } from "./components/analytics/messengers-bitrix";
-import { useSearchParams } from "next/navigation";
 import { ContactsSection } from "./sections/contacts-section/contacts-section";
 import { Modal } from "./components/modal/modal";
-import { GlobalPlayer } from "./components/global-player/global-player";
-import { Spectrum } from "./components/spectrum/spectrum";
 
 export default function Home() {
   return (
@@ -38,6 +34,7 @@ export default function Home() {
         <ReviewsSection />
         <ContactsSection />
         <Modal />
+        {/* <Spectrum /> */}
         {/* <GlobalPlayer /> */}
       </Provider>
     </>
