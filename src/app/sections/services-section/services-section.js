@@ -43,7 +43,7 @@ export const ServicesSection = () => {
       <div className="py-8 lg:py-16 mx-auto max-w-7xl items-center  px-8 lg:px-24 border-white border-y-0 border bg-black text-black relative">
         <h2 className="text-white font-bold uppercase text-4xl mb-4">Услуги</h2>
         <h3 className="text-white text-xs mb-16">
-          * узнать подробнее об услуге кликните на обложку
+          * чтобы узнать подробнее об услуге кликните на обложку
         </h3>
         <div className="mx-auto max-w-7xl">
           <ul className="flex justify-center mb-[30px]">

@@ -25,6 +25,7 @@ export const metadata = {
     "аранжировка",
     "написание текста",
   ],
+
   openGraph: {
     title: "Fuc Music - студия звукозаписи, Москва, Таганская",
     description:
