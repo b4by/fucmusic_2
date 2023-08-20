@@ -3,6 +3,7 @@ import { navLinks } from "@/app/constants";
 import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "../logo/logo";
+import Script from "next/script";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

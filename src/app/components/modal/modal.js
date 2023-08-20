@@ -33,11 +33,7 @@ export const Modal = () => {
       scroll={false}
     >
       <div className="relative bg-white p-6 max-w-[400px]">
-        <span
-          href="/"
-          scroll={false}
-          className="absolute left-[20px] top-[10px] md:left-0 md:-top-[30px] flex items-center space-x-2 justify-end text-black md:text-white"
-        >
+        <span className="absolute left-[20px] top-[10px] md:left-0 md:-top-[30px] flex items-center space-x-2 justify-end text-black md:text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

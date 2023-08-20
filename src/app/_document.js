@@ -3,12 +3,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html>
-      <Head>
-        <meta
-          property="vk:image"
-          content="/images/fuc_music_music_studio_preview_vk.jpg"
-        />
-      </Head>
+      <Head></Head>
       <body>
         <Main />
         <NextScript />

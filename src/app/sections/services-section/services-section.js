@@ -2,11 +2,12 @@ import { services } from "@/app/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { A11y, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
+import { SwiperCustomNavigation } from "@/app/components/swiper-custom-navigation/swiper-custom-navigation";
 
 const PriceEl = ({ price }) => {
   if (!price.from) {
@@ -38,6 +39,19 @@ const PriceEl = ({ price }) => {
 
 export const ServicesSection = () => {
   const router = useRouter();
+
+  const sliderRef = useRef(null);
+
+  const handlePrev = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  }, []);
+
   return (
     <section className="overflow-hidden bg-black" id="services">
       <div className="py-8 lg:py-16 mx-auto max-w-7xl items-center  px-8 lg:px-24 border-white border-y-0 border bg-black text-black relative">
@@ -48,12 +62,14 @@ export const ServicesSection = () => {
         <div className="mx-auto max-w-7xl">
           <ul className="flex justify-center mb-[30px]">
             <Swiper
-              modules={[Pagination]}
+              ref={sliderRef}
+              modules={[Pagination, Navigation, A11y]}
               spaceBetween={30}
               pagination={{
                 el: ".swiper-custom-pagination",
                 clickable: true,
               }}
+              centeredSlidesBounds="true"
               breakpoints={{
                 0: {
                   slidesPerView: 1,
@@ -137,6 +153,7 @@ export const ServicesSection = () => {
             </Swiper>
           </ul>
           <div className="swiper-custom-pagination"></div>
+          <SwiperCustomNavigation {...{ handlePrev, handleNext }} />
         </div>
       </div>
     </section>

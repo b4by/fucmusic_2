@@ -1,17 +1,32 @@
+import { SwiperCustomNavigation } from "@/app/components/swiper-custom-navigation/swiper-custom-navigation";
 import { photos } from "@/app/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useCallback, useRef } from "react";
+import { A11y, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 export const PhotosSection = () => {
+  const sliderRef = useRef(null);
+
+  const handlePrev = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  }, []);
+
   return (
     <section className="" id="photos">
-      <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x text-white">
+      <div className="relative mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x text-white">
         <h2 className="text-white font-bold uppercase text-4xl mb-16">Фото</h2>
         <div className="flex justify-center mb-[40px]">
           <Swiper
-            modules={[Pagination]}
+            ref={sliderRef}
+            modules={[Pagination, Navigation, A11y]}
             pagination={{
               el: ".swiper-photo-pagination",
               clickable: true,
@@ -47,6 +62,7 @@ export const PhotosSection = () => {
           </Swiper>
         </div>
         <div className="swiper-photo-pagination"></div>
+        <SwiperCustomNavigation {...{ handlePrev, handleNext }} />
       </div>
     </section>
   );
