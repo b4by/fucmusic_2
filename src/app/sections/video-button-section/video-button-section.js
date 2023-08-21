@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 
 export const VideoButtonSection = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const isClient = typeof window !== "undefined";
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => setIsClient(true), []);
 
   return (
     <section className="bg-black group group-hover:bg-pattern group-hover:bg-cover">
@@ -11,7 +11,11 @@ export const VideoButtonSection = () => {
         <div className="mx-auto divide-y divide-white">
           <div className="border-white border border-collapse">
             {isClient && (
-              <script data-b24-form="click/56/06885t" data-skip-moving="true">
+              <script
+                data-b24-form="click/56/06885t"
+                data-skip-moving="true"
+                id="bitrix-button"
+              >
                 {(function (w, d, u) {
                   var s = d.createElement("script");
                   s.async = true;
@@ -25,11 +29,7 @@ export const VideoButtonSection = () => {
                 )}
               </script>
             )}
-            <button
-              className="w-full p-20 md:p-48 relative uppercase overflow-hidden font-black text-center"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
+            <button className="w-full p-20 md:p-48 relative uppercase overflow-hidden font-black text-center">
               <video
                 autoPlay
                 loop

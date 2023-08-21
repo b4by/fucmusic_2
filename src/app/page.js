@@ -14,6 +14,7 @@ import YandexAnalytics from "./components/analytics/yandex-analytics";
 import { MessengersBitrix } from "./components/analytics/messengers-bitrix";
 import { ContactsSection } from "./sections/contacts-section/contacts-section";
 import { Modal } from "./components/modal/modal";
+import { Ticker } from "./components/ticker/ticker";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
         <ReviewsSection />
         <ContactsSection />
         <Modal />
+        {/* <Ticker /> */}
         {/* <Spectrum /> */}
         {/* <GlobalPlayer /> */}
       </Provider>

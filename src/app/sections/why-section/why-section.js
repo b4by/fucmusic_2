@@ -12,14 +12,8 @@ export const WhySection = () => {
                 <Image
                   src="/images/photos/18.jpg"
                   alt="фото студии"
-                  sizes="100vw"
-                  className="object-cover"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                  width={500}
-                  height={300}
+                  width="500"
+                  height="300"
                 />
               </Link>
             </div>
