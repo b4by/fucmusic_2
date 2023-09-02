@@ -6,5 +6,8 @@ export const Player = () => {
   const [duration, setDuration] = useState(0);
   const audioRef = useRef();
   const progressRef = useRef();
-  return <div></div>;
+  
+  return <div>
+
+  </div>;
 };

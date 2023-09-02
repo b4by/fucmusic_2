@@ -57,7 +57,7 @@ export const Footer = () => {
                     </span>
                   </a>
                   <Link
-                    href="tel:+79933987552"
+                    href="tel:+79120782013"
                     className="flex space-x-2 items-center group"
                   >
                     <svg
@@ -75,7 +75,7 @@ export const Footer = () => {
                       ></path>
                     </svg>
                     <span className="text-sm font-normal text-white leading-none group-hover:text-gray-300">
-                      +7 (993) 398 75 52
+                      +7 (912) 078-20-13
                     </span>
                   </Link>
                 </div>

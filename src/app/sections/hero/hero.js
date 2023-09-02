@@ -52,7 +52,7 @@ export const HeroSection = () => {
               </span>
             </a>
             <Link
-              href="tel:+79933987552"
+              href="tel:+79120782013"
               className="flex space-x-3 text-xl items-center group"
             >
               <svg
@@ -70,7 +70,7 @@ export const HeroSection = () => {
                 />
               </svg>
               <span className="font-normal text-sm md:text-xl text-white group-hover:text-gray-300 transition ease-in">
-                +7 (993) 398 75 52
+                +7 (912) 078-20-13
               </span>
             </Link>
           </div>
