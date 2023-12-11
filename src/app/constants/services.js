@@ -5,8 +5,8 @@ export const services = [
     id: 0,
     name: "Запись на студии",
     img: "/images/services/studio-recording.jpg",
-    price: "1000",
-    sale: "2000",
+    price: "1300",
+    sale: "1500",
     MDX: <Service0 />,
   },
   {
