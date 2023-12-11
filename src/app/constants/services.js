@@ -1,3 +1,5 @@
+import Service0 from "@/app/mdx/services/0.mdx";
+
 export const services = [
   {
     id: 0,
@@ -5,6 +7,7 @@ export const services = [
     img: "/images/services/studio-recording.jpg",
     price: "1000",
     sale: "2000",
+    MDX: <Service0 />,
   },
   {
     id: 1,
@@ -15,62 +18,34 @@ export const services = [
   },
   {
     id: 2,
-    name: "Запись + Сведение (Пакет Silver)",
-    img: "/images/services/recording-mixing-silver.jpg",
-    price: "4300",
-    sale: "5400",
-  },
-  {
-    id: 3,
-    name: "Запись + Сведение (Пакет Gold)",
-    img: "/images/services/recording-mixing-gold.jpg",
-    price: "5400",
-    sale: "7200",
-  },
-  {
-    id: 4,
-    name: "Запись + Сведение (Пакет Platinum)",
-    img: "/images/services/recording-mixing-platinum.jpg",
-    price: "6999",
-    sale: "9000",
-  },
-  {
-    id: 5,
-    name: "Запись + Сведение (Пакет DIAMOND/БЕЗ ОГРАНИЧЕНИЙ!)",
-    img: "/images/services/recording-mixing-diamond.jpg",
-    price: "14999",
-    sale: "20000",
-  },
-  {
-    id: 6,
     name: "Песня под ключ",
     img: "/images/services/turnkey.jpg",
     price: "30000",
     sale: "50000",
   },
   {
-    id: 7,
+    id: 3,
     name: "Сведение",
     img: "/images/services/mixing.jpg",
     price: "1500",
     sale: "",
   },
   {
-    id: 8,
+    id: 4,
     name: "Коррекция нот",
     img: "/images/services/correction.jpg",
     price: "1500",
     sale: "3000",
   },
   {
-    id: 9,
+    id: 5,
     name: "Дистрибьюция",
     img: "/images/services/distribution.jpg",
     price: "700",
     sale: "1000",
   },
   {
-    id: 10,
+    id: 6,
     name: "Гострайтинг",
     img: "/images/services/ghostwriting.jpg",
     price: {
@@ -80,14 +55,14 @@ export const services = [
     sale: "",
   },
   {
-    id: 11,
+    id: 7,
     name: "Мастеринг",
     img: "/images/services/mastering.jpg",
     price: "2000",
     sale: "4000",
   },
   {
-    id: 12,
+    id: 8,
     name: "Бит/Минус/Аранжировка",
     img: "/images/services/minus.jpg",
     price: {

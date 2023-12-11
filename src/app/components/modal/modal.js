@@ -10,11 +10,6 @@ import Service5 from "@/app/mdx/services/5.mdx";
 import Service6 from "@/app/mdx/services/6.mdx";
 import Service7 from "@/app/mdx/services/7.mdx";
 import Service8 from "@/app/mdx/services/8.mdx";
-import Service9 from "@/app/mdx/services/9.mdx";
-import Service10 from "@/app/mdx/services/10.mdx";
-import Service11 from "@/app/mdx/services/11.mdx";
-import Service12 from "@/app/mdx/services/12.mdx";
-import "./modal.css";
 
 export const Modal = () => {
   const searchParams = useSearchParams();
@@ -26,13 +21,17 @@ export const Modal = () => {
     return null;
   }
 
+  if (!service) {
+    return null;
+  }
+
   return (
     <Link
       className="fixed top-0 left-0 w-full h-full bg-zinc-800 bg-opacity-50 flex flex-col justify-center items-center z-[9999] p-6"
       href="/"
       scroll={false}
     >
-      <div className="relative bg-white p-6 max-w-[400px]">
+      <div className="relative bg-white p-6 pt-10 lg:p-6 max-w-[450px]">
         <span className="absolute left-[20px] top-[10px] md:left-0 md:-top-[30px] flex items-center space-x-2 justify-end text-black md:text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -57,10 +56,6 @@ export const Modal = () => {
         <div>{service.id === 6 && <Service6 />}</div>
         <div>{service.id === 7 && <Service7 />}</div>
         <div>{service.id === 8 && <Service8 />}</div>
-        <div>{service.id === 9 && <Service9 />}</div>
-        <div>{service.id === 10 && <Service10 />}</div>
-        <div>{service.id === 11 && <Service11 />}</div>
-        <div>{service.id === 12 && <Service12 />}</div>
       </div>
     </Link>
   );

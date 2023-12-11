@@ -9,6 +9,36 @@ import "swiper/css/pagination";
 import { useCallback, useRef } from "react";
 import { SwiperCustomNavigation } from "@/app/components/swiper-custom-navigation/swiper-custom-navigation";
 
+const ServiceItem = ({ service }) => {
+  const router = useRouter();
+
+  return (
+    <li
+      className="flex flex-col max-w-fit cursor-pointer"
+      onClick={() =>
+        router.push(`?modal=true&service=${service.id}&name=${service.name}`, {
+          scroll: false,
+        })
+      }
+    >
+      <div className="relative mb-3">
+        <Image src={service.img} width="250" height="250" alt={service.name} />
+      </div>
+      <h4 className="text-white font-medium uppercase truncate mb-2">
+        {service.name}
+      </h4>
+      <div className="text-white flex gap-x-4">
+        <PriceEl price={service.price} />
+        {service.sale && (
+          <span className="line-through font-light text-md">
+            {new Intl.NumberFormat("ru-RU").format(service.sale)} ₽
+          </span>
+        )}
+      </div>
+    </li>
+  );
+};
+
 const PriceEl = ({ price }) => {
   if (!price.from) {
     return (
@@ -38,8 +68,6 @@ const PriceEl = ({ price }) => {
 };
 
 export const ServicesSection = () => {
-  const router = useRouter();
-
   const sliderRef = useRef(null);
 
   const handlePrev = useCallback(() => {
@@ -85,69 +113,9 @@ export const ServicesSection = () => {
                 },
               }}
             >
-              {services.slice(0, 1).map((service) => (
+              {services.map((service) => (
                 <SwiperSlide key={service.id}>
-                  <li
-                    className="flex flex-col max-w-fit cursor-pointer"
-                    onClick={() =>
-                      router.push(`?modal=true&service=${service.id}`, {
-                        scroll: false,
-                      })
-                    }
-                  >
-                    <div className="relative mb-3">
-                      <Image
-                        src={service.img}
-                        width="250"
-                        height="250"
-                        alt={service.name}
-                      />
-                    </div>
-                    <h4 className="text-white font-medium uppercase truncate mb-2">
-                      {service.name}
-                    </h4>
-                    <div className="text-white flex gap-x-4">
-                      <PriceEl price={service.price} />
-                      {service.sale && (
-                        <span className="line-through font-light text-md">
-                          {new Intl.NumberFormat("ru-RU").format(service.sale)}{" "}
-                          ₽
-                        </span>
-                      )}
-                    </div>
-                  </li>
-                </SwiperSlide>
-              ))}
-              {services.slice(1).map((service) => (
-                <SwiperSlide key={service.id}>
-                  <li
-                    className="flex flex-col max-w-fit cursor-pointer"
-                    onClick={() =>
-                      router.push(`?modal=true&service=${service.id}`, {
-                        scroll: false,
-                      })
-                    }
-                  >
-                    <Image
-                      src={service.img}
-                      width="250"
-                      height="250"
-                      className="mb-3"
-                      alt={service.name}
-                    />
-                    <h4 className="text-white font-medium uppercase truncate mb-2">
-                      {service.name}
-                    </h4>
-                    <div className="text-white flex gap-x-4">
-                      <PriceEl price={service.price} />
-                      {service.sale && (
-                        <span className="line-through font-light text-md">
-                          {new Intl.NumberFormat("ru-RU").format(service.sale)}{" "}
-                          ₽
-                        </span>
-                      )}
-                    </div>
-                  </li>
+                  <ServiceItem service={service} />
                 </SwiperSlide>
               ))}
             </Swiper>

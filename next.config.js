@@ -1,5 +1,8 @@
+const withMDX = require("@next/mdx")();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
@@ -21,5 +24,4 @@ const nextConfig = {
   },
 };
 
-const withMDX = require("@next/mdx")();
 module.exports = withMDX(nextConfig);
