@@ -1,3 +1,4 @@
+import { PhotoModal } from "@/app/components/photo-modal/photo-modal";
 import { SwiperCustomNavigation } from "@/app/components/swiper-custom-navigation/swiper-custom-navigation";
 import { getImageUrl } from "@/app/utils/getImageUrl";
 import Image from "next/image";
@@ -8,8 +9,32 @@ import { useCallback, useRef } from "react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-export const PhotosSection = () => {
+const PhotoItem = ({ photo }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <div className="xl:grayscale transition-all duration-200 ease-in hover:grayscale-0 hover:scale-105">
+        <button type="button" onClick={() => setIsOpen(true)}>
+          <Image
+            src={getImageUrl(photo)}
+            width="600"
+            height="300"
+            alt="фотография студии"
+            loading="lazy"
+          />
+        </button>
+      </div>
+      <PhotoModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        photo={photo}
+      />
+    </>
+  );
+};
+
+export const PhotosSection = () => {
   const [photos, setPhotos] = useState([]);
   const sliderRef = useRef(null);
 
@@ -73,19 +98,7 @@ export const PhotosSection = () => {
               photos?.images.length > 0 &&
               photos?.images.map((photo) => (
                 <SwiperSlide key={photo.id}>
-                  <div className="xl:grayscale transition-all duration-200 ease-in hover:grayscale-0 hover:scale-105">
-                    <Link
-                      href={`${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.url}`}
-                    >
-                      <Image
-                        src={getImageUrl(photo)}
-                        width="600"
-                        height="300"
-                        alt="фотография студии"
-                        loading="lazy"
-                      />
-                    </Link>
-                  </div>
+                  <PhotoItem photo={photo} />
                 </SwiperSlide>
               ))}
           </Swiper>
