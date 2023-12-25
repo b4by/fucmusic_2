@@ -1,11 +1,11 @@
 import { PreviewModal } from "@/app/components/preview-modal/preview-modal";
-import { equipments } from "@/app/constants";
+import { getImageUrl } from "@/app/utils/getImageUrl";
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const EquimpentItem = ({ item }) => {
   const [openModal, setOpenModal] = useState(false);
+
   return (
     <li key={item.id} className="group">
       <div
@@ -14,14 +14,16 @@ const EquimpentItem = ({ item }) => {
         onClick={() => setOpenModal(true)}
       >
         <div className="relative max-w-[400px] aspect-[4/3]">
-          <Image
-            src={item.img}
-            alt={item.name}
-            fill
-            className="object-contain hover:scale-105 transition ease-in duration-200"
-            sizes="(max-width: 768px) 100vw"
-            loading="lazy"
-          />
+          {item.image && item.image?.url && (
+            <Image
+              src={getImageUrl(item.image)}
+              alt={item.name}
+              fill
+              className="object-contain hover:scale-105 transition ease-in duration-200"
+              sizes="(max-width: 768px) 100vw"
+              loading="lazy"
+            />
+          )}
         </div>
         <span className="text-sm">{item.name}</span>
       </div>
@@ -35,6 +37,28 @@ const EquimpentItem = ({ item }) => {
 };
 
 export const EquipmentSection = () => {
+  const [equipments, setEquipments] = useState([]);
+
+  useEffect(() => {
+    const fetchEquipments = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/equipments?populate=image`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const res = await response.json();
+        const data = res.data;
+        setEquipments(data);
+      } catch (error) {
+        console.error("Failed to fetch equipments:", error);
+      }
+    };
+
+    fetchEquipments();
+  }, []);
+
   return (
     <section className="bg-white" id="equipments">
       <div className="mx-auto max-w-7xl px-8 lg:px-24 py-12 border-x border-black">
@@ -42,9 +66,10 @@ export const EquipmentSection = () => {
           Оборудование
         </h2>
         <ul className="grid grid-cols-2 xl:grid-cols-3 gap-6">
-          {equipments.map((item) => (
-            <EquimpentItem item={item} />
-          ))}
+          {equipments.length > 0 &&
+            equipments?.map((item) => (
+              <EquimpentItem key={item.id} item={item} />
+            ))}
         </ul>
       </div>
     </section>

@@ -1,66 +1,81 @@
-import { services } from "@/app/constants";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { SwiperCustomNavigation } from "@/app/components/swiper-custom-navigation/swiper-custom-navigation";
+import { getImageUrl } from "@/app/utils/getImageUrl";
+import { getBlurDataUrl } from "@/app/utils/getBlurDataUrl";
+import { ServiceModal } from "@/app/components/service-modal/service-modal";
 
 const ServiceItem = ({ service }) => {
-  const router = useRouter();
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <li
-      className="flex flex-col max-w-fit cursor-pointer"
-      onClick={() =>
-        router.push(`?modal=true&service=${service.id}&name=${service.name}`, {
-          scroll: false,
-        })
-      }
-    >
-      <div className="relative mb-3">
-        <Image src={service.img} width="250" height="250" alt={service.name} />
-      </div>
-      <h4 className="text-white font-medium uppercase truncate mb-2">
-        {service.name}
-      </h4>
-      <div className="text-white flex gap-x-4">
-        <PriceEl price={service.price} />
-        {service.sale && (
-          <span className="line-through font-light text-md">
-            {new Intl.NumberFormat("ru-RU").format(service.sale)} ₽
-          </span>
-        )}
-      </div>
-    </li>
+    <>
+      <li
+        className="flex flex-col max-w-fit cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      >
+        <div className="relative mb-3">
+          {service.img && (
+            <Image
+              src={getImageUrl(service.img)}
+              width="250"
+              height="250"
+              placeholder="blur"
+              blurDataURL={getBlurDataUrl(service.img)}
+              alt={service.name}
+            />
+          )}
+        </div>
+        <h4 className="text-white font-medium uppercase truncate mb-2">
+          {service.name}
+        </h4>
+        <div className="text-white flex gap-x-4">
+          <PriceEl
+            isRange={service.isRange}
+            startRange={service.priceStart}
+            endRange={service.priceEnd}
+            newPrice={service.newPrice}
+            oldPrice={service.oldPrice}
+          />
+          {service.sale && (
+            <span className="line-through font-light text-md">
+              {new Intl.NumberFormat("ru-RU").format(service.sale)} ₽
+            </span>
+          )}
+        </div>
+      </li>
+      <ServiceModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        description={service.description}
+      />
+    </>
   );
 };
 
-const PriceEl = ({ price }) => {
-  if (!price.from) {
-    return (
-      <div>
-        <span className="font-bold text-md">
-          {new Intl.NumberFormat("ru-RU").format(price)} ₽
-        </span>
-        <span></span>
-      </div>
-    );
-  }
+const PriceEl = ({ isRange, startRange, endRange, newPrice, oldPrice }) => {
+  const formatPrice = (price) => new Intl.NumberFormat("ru-RU").format(price);
 
-  if (price.from && price.to) {
+  if (isRange) {
     return (
       <div className="flex items-center gap-x-2">
-        <span className="font-bold text-md">
-          {new Intl.NumberFormat("ru-RU").format(price.from)}
-        </span>
+        <span className="font-bold text-md">{formatPrice(startRange)}</span>
         <span>–</span>
-        <span className="font-bold text-md">
-          {new Intl.NumberFormat("ru-RU").format(price.to)}
-        </span>
+        <span className="font-bold text-md">{formatPrice(endRange)}</span>
+        <span className="font-bold text-md">₽</span>
+      </div>
+    );
+  } else {
+    return (
+      <div className="flex items-center gap-x-2">
+        <span className="font-bold text-md">{formatPrice(newPrice)}</span>
+        {oldPrice && (
+          <span className="text-md line-through">{formatPrice(oldPrice)}</span>
+        )}
         <span className="font-bold text-md">₽</span>
       </div>
     );
@@ -68,7 +83,29 @@ const PriceEl = ({ price }) => {
 };
 
 export const ServicesSection = () => {
+  const [services, setServices] = useState([]);
+
   const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/services?populate=img`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const res = await response.json();
+        const data = res.data;
+        setServices(data);
+      } catch (error) {
+        console.error("Failed to fetch equipments:", error);
+      }
+    };
+
+    fetchServices();
+  }, []);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -113,11 +150,12 @@ export const ServicesSection = () => {
                 },
               }}
             >
-              {services.map((service) => (
-                <SwiperSlide key={service.id}>
-                  <ServiceItem service={service} />
-                </SwiperSlide>
-              ))}
+              {services.length > 0 &&
+                services.map((service) => (
+                  <SwiperSlide key={service.id}>
+                    <ServiceItem service={service} />
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </ul>
           <div className="swiper-custom-pagination"></div>

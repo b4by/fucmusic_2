@@ -1,5 +1,5 @@
 "use client";
-import { HeroSection } from "./sections/hero/hero";
+import { HeroSection } from "./sections/hero-section/hero-section";
 import { VideoButtonSection } from "./sections/video-button-section/video-button-section";
 import { DescriptionSection } from "./sections/description-section/description-section";
 import { WhySection } from "./sections/why-section/why-section";
@@ -13,7 +13,7 @@ import { PhotosSection } from "./sections/photos-section/photos-section";
 import YandexAnalytics from "./components/analytics/yandex-analytics";
 import { MessengersBitrix } from "./components/analytics/messengers-bitrix";
 import { ContactsSection } from "./sections/contacts-section/contacts-section";
-import { Modal } from "./components/modal/modal";
+import { Modal } from "./components/service-modal/service-modal";
 import { Ticker } from "./components/ticker/ticker";
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
         <PhotosSection />
         <ReviewsSection />
         <ContactsSection />
-        <Modal />
+        {/* <Modal /> */}
         {/* <Ticker /> */}
         {/* <Spectrum /> */}
         {/* <GlobalPlayer /> */}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import ReactModal from "react-modal";
 import CloseIcon from "../icons/close-icon/close-icon";
+import { getImageUrl } from "@/app/utils/getImageUrl";
 
 export const PreviewModal = ({ isOpen, onClose, className, item }) => {
   //   const [mounted, setMounted] = useState(false);
@@ -33,7 +34,7 @@ export const PreviewModal = ({ isOpen, onClose, className, item }) => {
         className
       )}
     >
-      <div className="mb-[30px] flex items-center justify-between">
+      <div className="max-w-[700px] mb-[30px] flex items-center justify-between">
         <button
           type="button"
           onClick={onClose}
@@ -42,14 +43,19 @@ export const PreviewModal = ({ isOpen, onClose, className, item }) => {
           <CloseIcon />
         </button>
       </div>
-      <img
-        src={item.img}
-        alt={item.name}
-        fill
-        className="w-96 h-96 object-contain"
-        sizes="(max-width: 768px) 100vw"
-        loading="lazy"
-      />
+      {item.image && (
+        <div className="relative max-w-[400px] aspect-[4/3]">
+          {item.image && item.image?.url && (
+            <Image
+              src={getImageUrl(item.image)}
+              alt={item.name}
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw"
+            />
+          )}
+        </div>
+      )}
     </ReactModal>
   );
 };

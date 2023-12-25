@@ -1,13 +1,37 @@
 import { SwiperCustomNavigation } from "@/app/components/swiper-custom-navigation/swiper-custom-navigation";
-import { photos } from "@/app/constants";
+import { getImageUrl } from "@/app/utils/getImageUrl";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useCallback, useRef } from "react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const PhotosSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [photos, setPhotos] = useState([]);
   const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/photos/1?populate=images`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const res = await response.json();
+        const data = res.data;
+        setPhotos(data);
+      } catch (error) {
+        console.error("Failed to fetch equipments:", error);
+      }
+    };
+
+    fetchPhotos();
+  }, []);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -44,21 +68,26 @@ export const PhotosSection = () => {
               },
             }}
           >
-            {photos.map((photo) => (
-              <SwiperSlide key={photo.id}>
-                <div className="xl:grayscale transition-all duration-200 ease-in hover:grayscale-0 hover:scale-105">
-                  <Link href={photo.src}>
-                    <Image
-                      src={photo.src}
-                      width="600"
-                      height="300"
-                      alt="фотография студии"
-                      loading="lazy"
-                    />
-                  </Link>
-                </div>
-              </SwiperSlide>
-            ))}
+            {photos &&
+              photos?.images &&
+              photos?.images.length > 0 &&
+              photos?.images.map((photo) => (
+                <SwiperSlide key={photo.id}>
+                  <div className="xl:grayscale transition-all duration-200 ease-in hover:grayscale-0 hover:scale-105">
+                    <Link
+                      href={`${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.url}`}
+                    >
+                      <Image
+                        src={getImageUrl(photo)}
+                        width="600"
+                        height="300"
+                        alt="фотография студии"
+                        loading="lazy"
+                      />
+                    </Link>
+                  </div>
+                </SwiperSlide>
+              ))}
           </Swiper>
         </div>
         <div className="swiper-photo-pagination"></div>

@@ -1,5 +1,3 @@
-const withMDX = require("@next/mdx")();
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
@@ -7,9 +5,6 @@ const nextConfig = {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
-  },
-  experimental: {
-    mdxRs: true,
   },
   webpack(config, options) {
     config.module.rules.push({
@@ -22,6 +17,14 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.fucmusic.ru",
+      },
+    ],
+  },
 };
 
-module.exports = withMDX(nextConfig);
+module.exports = nextConfig;

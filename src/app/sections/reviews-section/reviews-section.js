@@ -1,16 +1,43 @@
-import { reviews } from "@/app/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { SwiperCustomNavigation } from "@/app/components/swiper-custom-navigation/swiper-custom-navigation";
 import { useCallback, useRef } from "react";
 import { StarsRating } from "@/app/components/stars-rating/stars-rating";
+import { useState } from "react";
+import { useEffect } from "react";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import { formatDate } from "@/app/utils/formatDate";
+import { getImageUrl } from "@/app/utils/getImageUrl";
+import Image from "next/image";
+import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 export const ReviewsSection = () => {
   const sliderRef = useRef(null);
+
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    const fetchEquipments = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/reviews?populate=photo`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const res = await response.json();
+        const data = res.data;
+        setReviews(data);
+      } catch (error) {
+        console.error("Failed to fetch equipments:", error);
+      }
+    };
+
+    fetchEquipments();
+  }, []);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -55,17 +82,33 @@ export const ReviewsSection = () => {
                   key={review.id}
                   className="flex flex-col gap-y-4 p-6 bg-white transition-all duration-200 ease-in h-full"
                 >
-                  <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    {review.photo ? (
+                      <Image
+                        src={getImageUrl(review.photo)}
+                        className="w-10 h-10 rounded-full object-cover"
+                        width="40"
+                        height="40"
+                      />
+                    ) : (
+                      <div className="w-10 h-10 rounded-full">
+                        <UserCircleIcon />
+                      </div>
+                    )}
                     <div className="flex items-center gap-x-1">
-                      <h4 className="font-bold">{review.firstname}</h4>
-                      <h4 className="font-bold">{review.lastname}</h4>
+                      <h4 className="font-bold">{review.firstName}</h4>
+                      <h4 className="font-bold">{review.lastName}</h4>
                     </div>
-                    <time className="font-light text-gray-400 text-sm">
-                      {review.date}
-                    </time>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    {review.date && (
+                      <time className="font-light text-gray-400 text-sm">
+                        {formatDate(review.date)}
+                      </time>
+                    )}
                   </div>
                   <StarsRating />
-                  <p className="">{review.text}</p>
+                  <BlocksRenderer content={review.text} />
                 </li>
               </SwiperSlide>
             ))}
