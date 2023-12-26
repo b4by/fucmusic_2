@@ -6,7 +6,7 @@ import ReactModal from "react-modal";
 export const ServiceModal = ({ isOpen, onClose, className, description }) => {
   return (
     <ReactModal
-      overlayClassName="fixed top-0 left-0 w-full h-full bg-zinc-800 bg-opacity-50 z-[9999] p-6"
+      overlayClassName="fixed top-0 left-0 w-full h-full bg-zinc-800 bg-opacity-50 p-6 z-[20000]"
       ariaHideApp={false}
       isOpen={isOpen}
       onRequestClose={onClose}
@@ -21,12 +21,12 @@ export const ServiceModal = ({ isOpen, onClose, className, description }) => {
         },
       }}
       className={cn(
-        "max-w-[650px]  p-6 py-10 border-none outline-none bg-white",
+        "max-w-[650px] p-6 py-10 border-none outline-none bg-white max-h-screen max-h-full my-4 overflow-y-auto lg:max-h-[500px] lg:h-fit",
         className
       )}
     >
       <button
-        className="absolute left-[20px] top-[10px] md:left-0 md:-top-[30px] flex items-center space-x-2 justify-end text-black md:text-white"
+        className="absolute left-[20px] top-[10px] md:left-5 md:top-2 flex items-center space-x-2 justify-end text-black md:text-black"
         onClick={onClose}
       >
         <svg
