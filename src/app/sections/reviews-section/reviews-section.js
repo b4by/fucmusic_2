@@ -23,7 +23,7 @@ export const ReviewsSection = () => {
     const fetchEquipments = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/reviews?populate=photo`
+          `${process.env.NEXT_PUBLIC_API_URL}/reviews?populate=photo&sort=rank:asc`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

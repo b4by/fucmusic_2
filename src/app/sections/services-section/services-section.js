@@ -91,7 +91,7 @@ export const ServicesSection = () => {
     const fetchServices = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/services?populate=img`
+          `${process.env.NEXT_PUBLIC_API_URL}/services?populate=img&sort=rank:asc`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

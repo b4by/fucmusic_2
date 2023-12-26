@@ -42,7 +42,7 @@ export const PhotosSection = () => {
     const fetchPhotos = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/photos/1?populate=images`
+          `${process.env.NEXT_PUBLIC_API_URL}/photos/1?populate=images&sort=rank:asc`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
